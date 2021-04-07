@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { Divider } from "@material-ui/core";
+import React, { useEffect } from "react";
+import alanBtn from "@alan-ai/alan-sdk-web";
+const alanKey =
+    "fe0732299bb6bf4d6d0f850c12d22f232e956eca572e1d8b807a3e2338fdd0dc/stage";
+const App = () => {
+    useEffect(() => {
+        alanBtn({
+            key: alanKey,
+            onCommand: ({ command }) => {
+                if (command === "testing") {
+                    alert("it is working!");
+                }
+            },
+        });
+    }, []);
+    return (
+        <div>
+            <h1>Alan AI News</h1>
+        </div>
+    );
+};
 
 export default App;
