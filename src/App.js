@@ -1,4 +1,4 @@
-import { Divider } from "@material-ui/core";
+import { Divider, LinearProgress } from "@material-ui/core";
 import React, { useEffect } from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
 const alanKey =
@@ -7,9 +7,9 @@ const App = () => {
     useEffect(() => {
         alanBtn({
             key: alanKey,
-            onCommand: ({ command }) => {
-                if (command === "testing") {
-                    alert("it is working!");
+            onCommand: ({ command, articles }) => {
+                if (command === "newHeadlines") {
+                    console.log(articles);
                 }
             },
         });
